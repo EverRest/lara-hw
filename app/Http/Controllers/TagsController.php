@@ -14,7 +14,10 @@ class TagsController extends Controller
      */
     public function index()
     {
-        //
+        $tags = Tags::all();
+
+        return View::make('tags.index')
+            ->with('tags', $tags);
     }
 
     /**
@@ -24,7 +27,7 @@ class TagsController extends Controller
      */
     public function create()
     {
-        //
+        return View::make('tags.create');
     }
 
     /**
@@ -35,7 +38,25 @@ class TagsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+//        $rules = array(
+//            'name'       => 'required',
+//            'email'      => 'required|email',
+//            'nerd_level' => 'required|numeric'
+//        );
+//        $validator = Validator::make(Input::all(), $rules);
+//
+//        if ($validator->fails()) {
+//            return Redirect::to('nerds/create')
+//                ->withErrors($validator)
+//                ->withInput(Input::except('password'));
+//        } else {
+//            $nerd = new Nerd;
+//            $nerd->name       = Input::get('name');
+//            $nerd->email      = Input::get('email');
+//            $nerd->nerd_level = Input::get('nerd_level');
+//            $nerd->save();
+
+            return Redirect::to('tags');
     }
 
     /**
@@ -44,9 +65,12 @@ class TagsController extends Controller
      * @param  \App\tags  $tags
      * @return \Illuminate\Http\Response
      */
-    public function show(tags $tags)
+    public function show($id)
     {
-        //
+        $tag = Tag::find($id);
+
+        return View::make('tags.show')
+            ->with('tag', $tag);
     }
 
     /**
@@ -55,9 +79,12 @@ class TagsController extends Controller
      * @param  \App\tags  $tags
      * @return \Illuminate\Http\Response
      */
-    public function edit(tags $tags)
+    public function edit($id)
     {
-        //
+        $tag = Tag::find($id);
+
+        return View::make('tags.edit')
+            ->with('tag', $tag);
     }
 
     /**
@@ -67,9 +94,30 @@ class TagsController extends Controller
      * @param  \App\tags  $tags
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, tags $tags)
+    public function update(Request $request, $id)
     {
-        //
+//        $rules = array(
+//            'name'       => 'required',
+//            'email'      => 'required|email',
+//            'nerd_level' => 'required|numeric'
+//        );
+//        $validator = Validator::make(Input::all(), $rules);
+//
+//        if ($validator->fails()) {
+//            return Redirect::to('nerds/' . $id . '/edit')
+//                ->withErrors($validator)
+//                ->withInput(Input::except('password'));
+//        } else {
+//            $nerd = Nerd::find($id);
+//            $nerd->name       = Input::get('name');
+//            $nerd->email      = Input::get('email');
+//            $nerd->nerd_level = Input::get('nerd_level');
+//            $nerd->save();
+//
+//            // redirect
+//            Session::flash('message', 'Successfully updated nerd!');
+//            return Redirect::to('nerds');
+//        }
     }
 
     /**
@@ -78,8 +126,11 @@ class TagsController extends Controller
      * @param  \App\tags  $tags
      * @return \Illuminate\Http\Response
      */
-    public function destroy(tags $tags)
+    public function destroy($id)
     {
-        //
+        $tag = Tag::find($id);
+        $tag->delete();
+
+        return Redirect::to('tags');
     }
 }

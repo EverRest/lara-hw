@@ -14,8 +14,19 @@ class CreatePostsHasCategoriesTable extends Migration
     public function up()
     {
         Schema::create('posts_has_categories', function (Blueprint $table) {
-            $table->integer('posts_id');
-            $table->integer('categories_id');
+            $table->integer('posts_id')->unsigned();
+            $table->integer('categories_id')->unsigned();
+
+
+            $table->foreign('posts_id')
+                ->references('id')
+                ->on('posts')
+                ->onDelete('cascade');
+
+            $table->foreign('categories_id')
+                ->references('id')
+                ->on('categories')
+                ->onDelete('cascade');
         });
     }
 
