@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePostsHasCategoriesTable extends Migration
+class CreateCategoryPostTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,20 +13,20 @@ class CreatePostsHasCategoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('posts_has_categories', function (Blueprint $table) {
-            $table->integer('posts_id')->unsigned()->length(10);
-            $table->integer('categories_id')->unsigned()->length(10);
+        Schema::create('category_post', function (Blueprint $table) {
+            $table->integer('post_id')->unsigned()->length(10);
+            $table->integer('category_id')->unsigned()->length(10);
 
         });
 
 
-        Schema::table('posts_has_categories', function($table) {
-            $table->foreign('posts_id')
+        Schema::table('category_post', function($table) {
+            $table->foreign('post_id')
                 ->references('id')
                 ->on('posts')
                 ->onDelete('cascade');
 
-            $table->foreign('categories_id')
+            $table->foreign('category_id')
                 ->references('id')
                 ->on('categories')
                 ->onDelete('cascade');
@@ -40,6 +40,6 @@ class CreatePostsHasCategoriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('posts_has_categories');
+        Schema::dropIfExists('category_post');
     }
 }

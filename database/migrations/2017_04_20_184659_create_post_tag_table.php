@@ -14,18 +14,18 @@ class CreateTagsHasPostsTable extends Migration
     public function up()
     {
         Schema::create('tags_has_posts', function (Blueprint $table) {
-            $table->integer('tags_id')->length(10)->unsigned();
-            $table->integer('posts_id')->length(10)->unsigned();
+            $table->integer('tag_id')->length(10)->unsigned();
+            $table->integer('post_id')->length(10)->unsigned();
         });
 
         Schema::table('tags_has_posts', function($table) {
-            $table->foreign('tags_id')
+            $table->foreign('tag_id')
                 ->references('id')->on('tags')
                 ->onDelete('cascade');
         });
 
         Schema::table('tags_has_posts', function($table) {
-            $table->foreign('posts_id')
+            $table->foreign('post_id')
                 ->references('id')->on('posts')
                 ->onDelete('cascade');
         });
