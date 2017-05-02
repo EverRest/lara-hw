@@ -50,7 +50,7 @@ class CommentController extends Controller
 
         // redirect
         Session::flash('message', 'Successfully created comments!');
-        return Redirect::to('posts');
+        return Redirect::to('post/'.$request->get('post_id'));
 //        }
     }
 
