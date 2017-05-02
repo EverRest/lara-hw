@@ -28,7 +28,7 @@ Route::get('/post/edit/{id}', 'PostController@edit')->where('id', '\w+');
 
 Route::post('/post/save', 'PostController@save');
 
-Route::put('/update/{id}', 'PostController@update')->where('id', '\w+');
+Route::put('/post/update/{id}', 'PostController@update')->where('id', '\w+');
 
 Route::get('/post/{id}', 'PostController@show')->where('id', '\w+');
 

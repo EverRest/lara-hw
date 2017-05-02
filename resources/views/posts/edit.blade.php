@@ -12,11 +12,11 @@
                             <div class="col-xs-12">
                                 <div class="contact-area-col contact-form">
                                     <h3 class="t-uppercase h-title mb-20">Edit Post</h3>
-                                    {{ Form::open(array('url' => 'update/' . $post->id, 'method' => 'PUT')) }}
+                                    {{ Form::open(array('url' => 'post/update/'.$post->id, 'method' => 'PUT')) }}
                                     {{--<form action="contact_us_02.html#" method="post">--}}
                                         <div class="form-group">
                                             <label>Name</label>
-                                            <input type="text" class="form-control" required="required" value="{{$post->name}}">
+                                            <input type="text" name="name" class="form-control" required="required" value="{{$post->name}}">
                                         </div>
                                         <div class="form-group">
                                             <label>Category</label>
@@ -28,15 +28,15 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Title</label>
-                                            <input type="text" class="form-control" required="required" value="{{$post->title}}">
+                                            <input type="text" name="title" class="form-control" required="required" value="{{$post->title}}">
                                         </div>
                                         <div class="form-group">
                                             <label>Anons</label>
-                                            <textarea rows="3" class="form-control" required="required">{{$post->anons}}</textarea>
+                                            <textarea name="anons" rows="3" class="form-control" required="required">{{$post->anons}}</textarea>
                                         </div>
                                         <div class="form-group">
                                             <label>Content</label>
-                                            <textarea rows="6" class="form-control" required="required">{{$post->content}}</textarea>
+                                            <textarea name="content" rows="6" class="form-control" required="required">{{$post->content}}</textarea>
                                         </div>
                                         <button class="btn">Submit</button>
                                     {{--</form>--}}

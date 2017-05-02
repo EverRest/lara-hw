@@ -37,7 +37,7 @@
                                             <p class="entry-summary">{{$post->content}}</p>
                                         </div>
                                         <footer class="entry-footer text-right">
-                                            <a href="blog_single_standard.html" class="more-link btn btn-link">Continue reading <i class="icon fa fa-long-arrow-right"></i></a>
+                                            <a href="post/edit/{{$post->id}}" class="more-link btn btn-link">Edit Post <i class="icon fa fa-long-arrow-right"></i></a>
                                         </footer>
                                     </div>
                                 </article>

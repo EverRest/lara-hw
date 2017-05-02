@@ -16,7 +16,7 @@
                                     {{--<form action="contact_us_02.html#" method="post">--}}
                                         <div class="form-group">
                                             <label>Name</label>
-                                            <input type="text" class="form-control" required="required" placeholder="Your Name">
+                                            <input type="text" name="name" class="form-control" required="required" placeholder="Your Name">
                                         </div>
                                         <div class="form-group">
                                             <label>Category</label>
@@ -28,15 +28,15 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Title</label>
-                                            <input type="text" class="form-control" required="required" placeholder="Your Name">
+                                            <input type="text" name="title" class="form-control" required="required" placeholder="Your Name">
                                         </div>
                                         <div class="form-group">
                                             <label>Anons</label>
-                                            <textarea rows="3" class="form-control" required="required" placeholder="Anons..."></textarea>
+                                            <textarea name="anons" rows="3" class="form-control" required="required" placeholder="Anons..."></textarea>
                                         </div>
                                         <div class="form-group">
                                             <label>Content</label>
-                                            <textarea rows="6" class="form-control" required="required" placeholder="Text..."></textarea>
+                                            <textarea name="content" rows="6" class="form-control" required="required" placeholder="Text..."></textarea>
                                         </div>
                                         <button class="btn">Submit</button>
                                     {{--</form>--}}

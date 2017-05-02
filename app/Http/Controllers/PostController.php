@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
+use Redirect;
+use Validator;
+use Session;
 use App\Post;
 use View;
 
@@ -37,7 +41,35 @@ class PostController extends Controller
      */
     public function save(Request $request)
     {
-        echo '<pre>';print_r($request);exit;
+        // validate
+        // read more on validation at http://laravel.com/docs/validation
+//        $rules = array(
+//            'name'       => 'required',
+//            'email'      => 'required|email',
+//            'nerd_level' => 'required|numeric'
+//        );
+//        $validator = Validator::make(Input::all(), $rules);
+
+        // process the login
+//        if ($validator->fails()) {
+//            return Redirect::to('nerds/create')
+//                ->withErrors($validator)
+//                ->withInput(Input::except('password'));
+//        } else {
+            // save
+            $post = new Post;
+            $post->name       = $request->get('name');
+            $post->title      = $request->get('title');
+            $post->anons      = $request->get('anons');
+            $post->content    = $request->get('content');
+            $post->url        = 'post-'.Post::count() + 1;
+        echo '<pre>';print_r($post);exit;
+            $post->save();
+
+            // redirect
+            Session::flash('message', 'Successfully created post!');
+            return Redirect::to('posts');
+//        }
     }
 
     /**
@@ -73,33 +105,35 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        echo '<pre>';print_r($request);exit;
         // validate
         // read more on validation at http://laravel.com/docs/validation
         $rules = array(
             'name'       => 'required',
-            'email'      => 'required|email',
-            'nerd_level' => 'required|numeric'
+            'title'      => 'required',
+            'anons'      => 'required',
+            'content'    => 'required'
         );
         $validator = Validator::make(Input::all(), $rules);
 
         // process the login
-        if ($validator->fails()) {
-            return Redirect::to('nerds/' . $id . '/edit')
-                ->withErrors($validator)
-                ->withInput(Input::except('password'));
-        } else {
-            // store
-            $nerd = Nerd::find($id);
-            $nerd->name       = Input::get('name');
-            $nerd->email      = Input::get('email');
-            $nerd->nerd_level = Input::get('nerd_level');
-            $nerd->save();
+//        if ($validator->fails()) {
+//            return Redirect::to('post/edit/' . $id)
+//                ->withErrors($validator)
+//                ->withInput(Input::except('password'));
+//        } else {
+            // save
+            $post = Post::find($id);
+            $post->name       = $request->get('name');
+            $post->title      = $request->get('title');
+            $post->anons      = $request->get('anons');
+            $post->content    = $request->get('content');
+
+            $post->save();
 
             // redirect
-            Session::flash('message', 'Successfully updated nerd!');
-            return Redirect::to('nerds');
-        }
+            Session::flash('message', 'Successfully updated post!');
+            return Redirect::to('posts');
+//        }
     }
 
     /**
