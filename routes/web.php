@@ -10,9 +10,40 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+//
+//Route::get('/', function () {
+//    return view('pages.home');
+//});
 
-Route::get('/', function () {
-    return view('pages.home');
-});
+//Route::resource('posts','PostController ');
 
-Route::resource('tags', 'TagsController');
+//PostController
+
+Route::get('/posts', 'PostController@index');
+
+Route::get('/post/new', 'PostController@create');
+
+Route::get('/post/edit/{id}', 'PostController@edit')->where('id', '\w+');
+
+Route::get('/post/{id}', 'PostController@show')->where('id', '\w+');
+
+//TagController
+
+Route::resource('tag', 'TagController');
+
+
+//Route::get('/', function () {
+//    return view('pages/home', [
+//        'title' => 'Home Page',
+//        'type' => 'home',
+//        'ptb' => 'ptb-10'
+//    ]);
+//});
+//
+//Route::get('/categories', 'Categories@showAll');
+//Route::get('/categories/{id}', 'Categories@showSingle');
+//Route::get('/post/{id}', 'Posts@showSingle');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');

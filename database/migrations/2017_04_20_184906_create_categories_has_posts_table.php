@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCategoriesHasPostTable extends Migration
+class CreateCategoriesHasPostsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -20,7 +20,7 @@ class CreateCategoriesHasPostTable extends Migration
         });
 
 
-        Schema::table('categories_has_post', function($table) {
+        Schema::table('categories_has_posts', function($table) {
             $table->foreign('post_id')
                 ->references('id')
                 ->on('posts')
@@ -40,6 +40,6 @@ class CreateCategoriesHasPostTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('categoryies_has_post');
+        Schema::dropIfExists('categories_has_posts');
     }
 }

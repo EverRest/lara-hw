@@ -10,7 +10,7 @@
                     <!-- Blog Area -->
                     <div class="blog-area blog-single-post">
                         <div class="row row-tb-20">
-
+                            @if (!empty($post)):
                             <!-- Blog Post -->
                             <div class="blog-post col-xs-12">
                                 <article class="entry panel">
@@ -23,16 +23,17 @@
                                     <div class="entry-wrapper prl-20 prl-md-30 pt-20 pt-md-30 pb-15">
                                         <header class="entry-header">
                                             <h4 class="entry-title mb-10 mb-md-15">
-                                                Restaurant Employer Read Clients Orders On His iPad										</h4>
+                                                {{$post->title}}
+                                            </h4>
                                             <div class="entry-meta mb-10">
                                                 <ul class="tag-info list-inline">
-                                                    <li><i class="icon fa fa-user"></i> By : John Doe</li>
+                                                    <li><i class="icon fa fa-user"></i> By : {{$post->name}}</li>
                                                     <li><i class="icon fa fa-comments"></i> 14 Comments </li>
                                                 </ul>
                                             </div>
                                         </header>
                                         <div class="entry-content">
-                                            <p class="mb-20">Aliquam convallis sollicitudin purus. Praesent aliquam, enim at fermentum mollis, ligula massa adipiscing nisl, ac euismod nibh nisl eu lectus. Fusce vulputate sem at sapien. Vivamus leo. Aliquam euismod libero eu enim. Nulla nec felis sed leo placerat imperdiet. Aenean suscipit nulla in justo. Suspendisse cursus rutrum augue. Nulla tincidunt tincidunt mi.</p>
+                                            <p class="mb-20">{{$post->content}}</p>
                                             <blockquote class="block-quote mb-20">
                                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur esse, aliquam dolore nulla debitis excepturi ea ex earum quos molestias porro aut, corporis, ratione assumenda sint pariatur veritatis possimus nobis!</p>
                                             </blockquote>
@@ -128,7 +129,7 @@
                                         <img class="media-object" src="assets/images/avatars/blog_author.jpg" alt="">
                                     </figure>
                                     <div class="media-body">
-                                        <h3>John Doe</h3>
+                                        <h3>{{$post->name}}</h3>
                                         <h5>Developper And Designer</h5>
                                         <p class="color-mid">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil doloribus, dignissimos, sunt doloremque possimus quasi, aliquam impedit facere tempora ullam nemo minus dicta dolor! Dicta quisquam.</p>
                                         <ul class="social-icons list-inline">
@@ -450,7 +451,7 @@
                                 </div>
                             </div>
                             <!-- End Comments Area -->
-
+                            @endif
                         </div>
                     </div>
                     <!-- End Blog Area -->

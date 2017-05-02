@@ -17,8 +17,10 @@ class CreatePostsTable extends Migration
             $table->increments('id', true);
             $table->string('title', 255);
             $table->string('name', 255);
+            $table->text('anons');
             $table->text('content');
             $table->string('url',160);
+            $table->timestamp('created_at')->nullable();
         });
     }
 

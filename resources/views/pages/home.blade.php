@@ -1044,4 +1044,4 @@
     </main>
     <!-- –––––––––––––––[ END PAGE CONTENT ]––––––––––––––– -->
 
-@stop
+@endsection

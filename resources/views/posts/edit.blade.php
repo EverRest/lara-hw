@@ -11,25 +11,33 @@
                         <div class="row row-tb-30">
                             <div class="col-xs-12">
                                 <div class="contact-area-col contact-form">
-                                    <h3 class="t-uppercase h-title mb-20">Get in touch</h3>
+                                    <h3 class="t-uppercase h-title mb-20">Edit Post</h3>
                                     <form action="contact_us_02.html#" method="post">
                                         <div class="form-group">
                                             <label>Name</label>
+                                            <input type="text" class="form-control" required="required" value="{{$post->name}}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Category</label>
                                             <input type="text" class="form-control" required="required">
                                         </div>
                                         <div class="form-group">
-                                            <label>Email Address</label>
+                                            <label>Tags</label>
                                             <input type="text" class="form-control" required="required">
                                         </div>
                                         <div class="form-group">
-                                            <label>Website</label>
-                                            <input type="text" class="form-control" required="required">
+                                            <label>Title</label>
+                                            <input type="text" class="form-control" required="required" value="{{$post->title}}">
                                         </div>
                                         <div class="form-group">
-                                            <label>Message</label>
-                                            <textarea rows="5" class="form-control" required="required"></textarea>
+                                            <label>Anons</label>
+                                            <textarea rows="3" class="form-control" required="required">{{$post->anons}}</textarea>
                                         </div>
-                                        <button class="btn">Send Message</button>
+                                        <div class="form-group">
+                                            <label>Content</label>
+                                            <textarea rows="6" class="form-control" required="required">{{$post->content}}</textarea>
+                                        </div>
+                                        <button class="btn">Submit</button>
                                     </form>
                                 </div>
                             </div>

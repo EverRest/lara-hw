@@ -17,6 +17,7 @@ class CreateCommentsTable extends Migration
             $table->increments('id', true);
             $table->integer('users_id')->length(10)->unsigned();
             $table->text('message');
+            $table->timestamp('created_at')->nullable();
         });
 
         Schema::table('comments', function($table) {
