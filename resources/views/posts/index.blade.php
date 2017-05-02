@@ -13,7 +13,7 @@
                         <div class="row row-tb-20">
                             @foreach($posts as $post)
                             <!-- Blog Post -->
-                            <div data-id="{{$post->id}}" class="blog-post col-xs-12">
+                            <div class="blog-post col-xs-12">
                                 <article class="entry panel">
                                     <figure class="entry-media post-thumbnail embed-responsive embed-responsive-16by9" data-bg-img="assets/images/blog/blog_01.jpg">
                                         <div class="entry-date">
@@ -24,7 +24,7 @@
                                     <div class="entry-wrapper prl-20 prl-md-30 pt-20 pt-md-30 pb-15">
                                         <header class="entry-header">
                                             <h4 class="entry-title mb-10 mb-md-15 t-uppercase">
-                                                <a href="blog_single_standard.html">{{$post->title}}</a>
+                                                <a href="post/{{$post->id}}">{{$post->title}}</a>
                                             </h4>
                                             <div class="entry-meta mb-10">
                                                 <ul class="tag-info list-inline">

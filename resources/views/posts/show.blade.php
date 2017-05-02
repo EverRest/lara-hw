@@ -403,36 +403,24 @@
                                     <div class="col-xs-12">
                                         <div id="commentRespond" class="comment-respond panel pt-20 pb-30 prl-20">
                                             <h3 class="comment-respond-title h-title mb-30">Leave A Comment</h3>
-                                            <form action="blog_single_standard.html#" method="post" id="commentForm" class="comment-form">
+                                            {{ Form::open(array('url' => 'comment/save', 'method' => 'POST', 'class' => 'comment-form')) }}
+                                            {{--<form action="blog_single_standard.html#" method="post" id="commentForm" class="comment-form">--}}
                                                 <div class="row row-10">
                                                     <div class="col-xs-12">
                                                         <div class="comment-notes alert alert-info">
-                                                            <span>Your email address will not be published.</span> Required fields are marked <span class="required">*</span>
                                                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                                                 <span aria-hidden="true">&times;</span>
                                                             </button>
                                                         </div>
                                                     </div>
-                                                    <div class="col-sm-6">
+                                                    <div class="col-sm-12">
                                                         <div class="comment-form-author form-group">
                                                             <label for="author">Name <span class="required">*</span>
                                                             </label>
                                                             <input id="author" class="form-control" name="author" type="text" value="" required='required' />
                                                         </div>
                                                     </div>
-                                                    <div class="col-sm-6">
-                                                        <div class="comment-form-email form-group">
-                                                            <label for="email">Email <span class="required">*</span>
-                                                            </label>
-                                                            <input id="email" class="form-control" name="email" type="email" value="" required='required' />
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-xs-12">
-                                                        <div class="comment-form-url form-group">
-                                                            <label for="url">Website</label>
-                                                            <input id="url" class="form-control" name="url" type="url" value="" />
-                                                        </div>
-                                                    </div>
+                                                    <input name="post_id" type="hidden" value="{{$post->id}}" />
                                                     <div class="col-xs-12">
                                                         <div class="comment-form-comment form-group">
                                                             <label for="comment">Comment</label>
@@ -445,7 +433,8 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </form>
+                                            {{ Form::close() }}
+                                            {{--</form>--}}
                                         </div>
                                     </div>
                                 </div>

@@ -38,6 +38,10 @@ Route::get('/post/delete/{id}', 'PostController@destroy')->where('id', '\w+');
 
 Route::resource('tag', 'TagController');
 
+//CommentController
+
+Route::post('/comment/save', 'CommentController@save');
+
 
 //Route::get('/', function () {
 //    return view('pages/home', [
