@@ -20,7 +20,11 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Category</label>
-                                            {{--<input type="text" class="form-control" required="required">--}}
+                                            <select name="catehory" class="form-control" required="required">
+                                                @foreach($categories as $category)
+                                                    <option value="{{$category->id}}">{{$category->name}}</option>
+                                                @endforeach
+                                            </select>
                                         </div>
                                         <div class="form-group">
                                             <label>Tags</label>

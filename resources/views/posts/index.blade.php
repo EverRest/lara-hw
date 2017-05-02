@@ -37,6 +37,7 @@
                                             <p class="entry-summary">{{$post->content}}</p>
                                         </div>
                                         <footer class="entry-footer text-right">
+                                            <a id="post-delete" href="post/delete/{{$post->id}}" class="more-link btn btn-link">Delete Post <i class="icon fa fa-delete"></i></a>
                                             <a href="post/edit/{{$post->id}}" class="more-link btn btn-link">Edit Post <i class="icon fa fa-long-arrow-right"></i></a>
                                         </footer>
                                     </div>
@@ -45,7 +46,6 @@
                             <!-- End Blog Post -->
                             @endforeach
                         </div>
-
                         <!-- Blog Pagination -->
                         <div class="page-pagination text-center mt-30 p-10 panel">
                             <nav>
@@ -195,21 +195,11 @@
                                     </div>
                                     <div class="widget-body ptb-20">
                                         <ul>
+                                            @foreach($categories as $category)
                                             <li>
-                                                <a href="blog_classic_right_sidebar.html#">Best Deals <span>1420</span></a>
+                                                <a href="{{$category->url}}">{{$category->name}} <span>1420</span></a>
                                             </li>
-                                            <li>
-                                                <a href="blog_classic_right_sidebar.html#">Shopping <span>780</span></a>
-                                            </li>
-                                            <li>
-                                                <a href="blog_classic_right_sidebar.html#">Sport <span>670</span></a>
-                                            </li>
-                                            <li>
-                                                <a href="blog_classic_right_sidebar.html#">Travel <span>520</span></a>
-                                            </li>
-                                            <li>
-                                                <a href="blog_classic_right_sidebar.html#">Coupon Code <span>350</span></a>
-                                            </li>
+                                            @endforeach
                                         </ul>
                                     </div>
                                 </div>

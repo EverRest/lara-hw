@@ -32,7 +32,7 @@ Route::put('/post/update/{id}', 'PostController@update')->where('id', '\w+');
 
 Route::get('/post/{id}', 'PostController@show')->where('id', '\w+');
 
-Route::delete('/post/{id}', 'PostController@destroy')->where('id', '\w+');
+Route::get('/post/delete/{id}', 'PostController@destroy')->where('id', '\w+');
 
 //TagController
 

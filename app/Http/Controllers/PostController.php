@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Input;
 use Redirect;
 use Validator;
 use Session;
+use App\Category;
 use App\Post;
 use View;
 
@@ -20,7 +21,8 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::all();
-        return View::make('posts.index')->with('posts',$posts);
+        $categories = Category::all();
+        return View::make('posts.index')->with('posts',$posts)->with('categories',$categories);
     }
 
     /**
@@ -30,7 +32,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        return View::make('posts.create');
+        $categories = Category::all();
+        return View::make('posts.create')->with('categories',$categories);
     }
 
     /**
@@ -62,8 +65,7 @@ class PostController extends Controller
             $post->title      = $request->get('title');
             $post->anons      = $request->get('anons');
             $post->content    = $request->get('content');
-            $post->url        = 'post-'.Post::count() + 1;
-        echo '<pre>';print_r($post);exit;
+            $post->url        = 'post-'.Post::all()->count() + 1;
             $post->save();
 
             // redirect
@@ -93,7 +95,8 @@ class PostController extends Controller
     public function edit($id)
     {
         $post = Post::find($id);
-        return View::make('posts.edit')->with('post', $post);
+        $categories = Category::all();
+        return View::make('posts.edit')->with('post', $post)->with('categories', $categories);
     }
 
     /**
