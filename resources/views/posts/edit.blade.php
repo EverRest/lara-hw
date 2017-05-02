@@ -12,18 +12,19 @@
                             <div class="col-xs-12">
                                 <div class="contact-area-col contact-form">
                                     <h3 class="t-uppercase h-title mb-20">Edit Post</h3>
-                                    <form action="contact_us_02.html#" method="post">
+                                    {{ Form::open(array('url' => 'update/' . $post->id, 'method' => 'PUT')) }}
+                                    {{--<form action="contact_us_02.html#" method="post">--}}
                                         <div class="form-group">
                                             <label>Name</label>
                                             <input type="text" class="form-control" required="required" value="{{$post->name}}">
                                         </div>
                                         <div class="form-group">
                                             <label>Category</label>
-                                            <input type="text" class="form-control" required="required">
+                                            {{--<input type="text" class="form-control" required="required">--}}
                                         </div>
                                         <div class="form-group">
                                             <label>Tags</label>
-                                            <input type="text" class="form-control" required="required">
+                                            {{--<input type="text" class="form-control" required="required">--}}
                                         </div>
                                         <div class="form-group">
                                             <label>Title</label>
@@ -38,7 +39,8 @@
                                             <textarea rows="6" class="form-control" required="required">{{$post->content}}</textarea>
                                         </div>
                                         <button class="btn">Submit</button>
-                                    </form>
+                                    {{--</form>--}}
+                                    {{ Form::close() }}
                                 </div>
                             </div>
                         </div>

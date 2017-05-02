@@ -17,6 +17,7 @@
 
 //Route::resource('posts','PostController ');
 
+
 //PostController
 
 Route::get('/posts', 'PostController@index');
@@ -25,7 +26,13 @@ Route::get('/post/new', 'PostController@create');
 
 Route::get('/post/edit/{id}', 'PostController@edit')->where('id', '\w+');
 
+Route::post('/post/save', 'PostController@save');
+
+Route::put('/update/{id}', 'PostController@update')->where('id', '\w+');
+
 Route::get('/post/{id}', 'PostController@show')->where('id', '\w+');
+
+Route::delete('/post/{id}', 'PostController@destroy')->where('id', '\w+');
 
 //TagController
 
