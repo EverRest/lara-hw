@@ -9,6 +9,7 @@ use Validator;
 use Session;
 use App\Category;
 use App\Post;
+use App\Comment;
 use View;
 
 class PostController extends Controller
@@ -83,7 +84,8 @@ class PostController extends Controller
     public function show($id)
     {
         $post = Post::find($id);
-        return View::make('posts.show')->with('post', $post);
+        $comments = Comment::where('posts_id', $id)->orderBy('created_at', 'asc');
+        return View::make('posts.show')->with('post', $post)->with('comments', $comments);
     }
 
     /**

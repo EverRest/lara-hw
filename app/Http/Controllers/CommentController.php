@@ -13,7 +13,7 @@ use Redirect;
 use Validator;
 use Session;
 use App\Category;
-use App\comments;
+use App\Comment;
 use View;
 
 class CommentController extends Controller
@@ -42,10 +42,10 @@ class CommentController extends Controller
 //                ->withInput(Input::except('password'));
 //        } else {
         // save
-        $comment = new Comments;
+        $comment = new Comment;
         $comment->name       = $request->get('author');
-        $comment->post_id      = $request->get('post_id');
-        $comment->comment    = $request->get('comment');
+        $comment->posts_id      = $request->get('post_id');
+        $comment->message    = $request->get('comment');
         $comment->save();
 
         // redirect

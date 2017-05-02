@@ -200,7 +200,7 @@
                                             <h3 class="posted-comments-title h-title mb-30">7 Comments</h3>
                                             <ol class="comment-list">
 
-
+                                                @foreach($comments as $comment)
                                                 <li class="comment comment-bypostauthor media">
 
 
@@ -214,14 +214,14 @@
                                                         <!-- Comment Metadata -->
                                                         <div class="comment-meta mb-5">
                                                             <a href="blog_single_standard.html#" class="comment-reply-link btn btn-xs btn-gray btn-rounded">Reply <i class="fa fa-reply"></i></a>
-                                                            <h5 class="comment-author-name mb-5 ">John Doe</h5>
-                                                            <span class="color-muted">December 31, 2001 at 11:10 pm</span>
+                                                            <h5 class="comment-author-name mb-5 ">{{$comment->name}}</h5>
+                                                            <span class="color-muted">{{$comment->created_at}}</span>
                                                         </div>
                                                         <!-- End Comment Metadata -->
 
                                                         <!-- Comment Content -->
                                                         <div class="comment-content color-mid">
-                                                            <p>Rrhoncus et erat. Nam posuere tristique sem, eu ultricies tortor imperdiet vitae. Curabitur lacinia neque.</p>
+                                                            <p>{{$comment->message}}</p>
                                                         </div>
                                                         <!-- End Comment Content -->
                                                     </article>
@@ -285,117 +285,7 @@
 
                                                     </ol>
                                                 </li>
-
-                                                <li class="comment media">
-
-
-
-                                                    <figure class="comment-author-thumb media-left">
-                                                        <a href="blog_single_standard.html#">
-                                                            <img class="media-object" src="assets/images/avatars/avatar_03.jpg" alt="" />
-                                                        </a>
-                                                    </figure>
-                                                    <article class="comment-wrapper media-body">
-                                                        <!-- Comment Metadata -->
-                                                        <div class="comment-meta mb-5">
-                                                            <a href="blog_single_standard.html#" class="comment-reply-link btn btn-xs btn-gray btn-rounded">Reply <i class="fa fa-reply"></i></a>
-                                                            <h5 class="comment-author-name mb-5 ">Jhon Kennadi</h5>
-                                                            <span class="color-muted">December 31, 2001 at 11:10 pm</span>
-                                                        </div>
-                                                        <!-- End Comment Metadata -->
-
-                                                        <!-- Comment Content -->
-                                                        <div class="comment-content color-mid">
-                                                            <p>Eum in dicta veniam interesset, harum fuisset te nam.</p>
-                                                        </div>
-                                                        <!-- End Comment Content -->
-                                                    </article>
-
-                                                </li>
-
-                                                <li class="comment media">
-
-
-
-                                                    <figure class="comment-author-thumb media-left">
-                                                        <a href="blog_single_standard.html#">
-                                                            <img class="media-object" src="assets/images/avatars/avatar_04.jpg" alt="" />
-                                                        </a>
-                                                    </figure>
-                                                    <article class="comment-wrapper media-body">
-                                                        <!-- Comment Metadata -->
-                                                        <div class="comment-meta mb-5">
-                                                            <a href="blog_single_standard.html#" class="comment-reply-link btn btn-xs btn-gray btn-rounded">Reply <i class="fa fa-reply"></i></a>
-                                                            <h5 class="comment-author-name mb-5 ">John Doe</h5>
-                                                            <span class="color-muted">December 31, 2001 at 11:10 pm</span>
-                                                        </div>
-                                                        <!-- End Comment Metadata -->
-
-                                                        <!-- Comment Content -->
-                                                        <div class="comment-content color-mid">
-                                                            <p>Commodo est luctus eget. Proin in nunc laoreet justo volutpat blandit enim. Sem felis, ullamcorper vel aliquam non, varius eget justo. Duis quis nunc tellus sollicitudin mauris.</p>
-                                                        </div>
-                                                        <!-- End Comment Content -->
-                                                    </article>
-
-                                                    <ol class="comment-replays">
-
-                                                        <li class="comment media">
-
-
-
-                                                            <figure class="comment-author-thumb media-left">
-                                                                <a href="blog_single_standard.html#">
-                                                                    <img class="media-object" src="assets/images/avatars/avatar_05.jpg" alt="" />
-                                                                </a>
-                                                            </figure>
-
-                                                            <article class="comment-wrapper media-body">
-
-                                                                <!-- End Comment Metadata -->
-                                                                <div class="comment-meta mb-5">
-                                                                    <a href="blog_single_standard.html#" class="comment-reply-link btn btn-xs btn-gray btn-rounded">Reply <i class="fa fa-reply"></i></a>
-                                                                    <h5 class="comment-author-name mb-5">John Doe</h5>
-                                                                    <span class="color-muted">December 31, 2001 at 11:10 pm</span>
-                                                                </div>
-
-                                                                <!-- Comment Content -->
-                                                                <div class="comment-content color-mid">
-                                                                    <p>Eum in dicta veniam interesset, harum fuisset te nam.</p>
-                                                                </div>
-                                                                <!-- End Comment Content -->
-                                                            </article>
-                                                        </li>
-
-                                                    </ol>
-                                                </li>
-
-                                                <li class="comment media">
-
-
-
-                                                    <figure class="comment-author-thumb media-left">
-                                                        <a href="blog_single_standard.html#">
-                                                            <img class="media-object" src="assets/images/avatars/avatar_04.jpg" alt="" />
-                                                        </a>
-                                                    </figure>
-                                                    <article class="comment-wrapper media-body">
-                                                        <!-- Comment Metadata -->
-                                                        <div class="comment-meta mb-5">
-                                                            <a href="blog_single_standard.html#" class="comment-reply-link btn btn-xs btn-gray btn-rounded">Reply <i class="fa fa-reply"></i></a>
-                                                            <h5 class="comment-author-name mb-5 ">John Doe</h5>
-                                                            <span class="color-muted">December 31, 2001 at 11:10 pm</span>
-                                                        </div>
-                                                        <!-- End Comment Metadata -->
-
-                                                        <!-- Comment Content -->
-                                                        <div class="comment-content color-mid">
-                                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium perspiciatis, unde rerum libero ea voluptatibus eveniet.</p>
-                                                        </div>
-                                                        <!-- End Comment Content -->
-                                                    </article>
-
-                                                </li>
+                                                @endforeach
 
                                             </ol>
                                         </div>
@@ -406,13 +296,13 @@
                                             {{ Form::open(array('url' => 'comment/save', 'method' => 'POST', 'class' => 'comment-form')) }}
                                             {{--<form action="blog_single_standard.html#" method="post" id="commentForm" class="comment-form">--}}
                                                 <div class="row row-10">
-                                                    <div class="col-xs-12">
-                                                        <div class="comment-notes alert alert-info">
-                                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                                                <span aria-hidden="true">&times;</span>
-                                                            </button>
-                                                        </div>
-                                                    </div>
+                                                    {{--<div class="col-xs-12">--}}
+                                                        {{--<div class="comment-notes alert alert-info">--}}
+                                                            {{--<button type="button" class="close" data-dismiss="alert" aria-label="Close">--}}
+                                                                {{--<span aria-hidden="true">&times;</span>--}}
+                                                            {{--</button>--}}
+                                                        {{--</div>--}}
+                                                    {{--</div>--}}
                                                     <div class="col-sm-12">
                                                         <div class="comment-form-author form-group">
                                                             <label for="author">Name <span class="required">*</span>
