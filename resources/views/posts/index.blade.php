@@ -17,8 +17,8 @@
                                 <article class="entry panel">
                                     <figure class="entry-media post-thumbnail embed-responsive embed-responsive-16by9" data-bg-img="assets/images/blog/blog_01.jpg">
                                         <div class="entry-date">
-                                            <h4>13</h4>
-                                            <h6>JUN</h6>
+                                            <h4>{{getdate(strtotime($post->created_at))['mday']}}</h4>
+                                            <h6>{{getdate(strtotime($post->created_at))['month']}}</h6>
                                         </div>
                                     </figure>
                                     <div class="entry-wrapper prl-20 prl-md-30 pt-20 pt-md-30 pb-15">
