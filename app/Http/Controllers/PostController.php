@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Input;
 use Redirect;
 use Validator;
 use Session;
+use DB;
 use App\Category;
 use App\Post;
 use App\Comment;
@@ -84,7 +85,7 @@ class PostController extends Controller
     public function show($id)
     {
         $post = Post::find($id);
-        $comments = Comment::where('posts_id', $id)->orderBy('created_at', 'asc');
+        $comments = DB::table('comments')->where('posts_id', $id)->orderBy('created_at', 'asc')->get();
         return View::make('posts.show')->with('post', $post)->with('comments', $comments);
     }
 
